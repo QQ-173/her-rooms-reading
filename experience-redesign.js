@@ -12,6 +12,9 @@
 
   document.body.classList.add('reader-mode');
   document.body.dataset.reader = reader;
+  const desiredState = reader === 'finished' ? 'finished' : 'unread';
+  const stateButton = document.querySelector(`[data-state="${desiredState}"]`);
+  if (stateButton && !stateButton.classList.contains('active')) stateButton.click();
   document.querySelectorAll('[data-reader-link]').forEach(link => {
     link.classList.toggle('active', link.dataset.readerLink === reader);
   });
