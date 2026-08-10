@@ -16,6 +16,17 @@
   --sans: Inter, "PingFang SC", "Microsoft YaHei", sans-serif;
 }
 
+/* Shared book navigator */
+.book-switcher { position: fixed; z-index: 92; top: 94px; left: 18px; display: grid; width: 196px; overflow: hidden; border: 1px solid rgba(81,52,43,.13); border-radius: 14px; background: rgba(255,250,241,.88); box-shadow: 0 16px 45px rgba(63,35,26,.12); backdrop-filter: blur(18px); }
+.book-switcher > span { padding: 9px 13px 7px; color: var(--muted); font-size: 9px; letter-spacing: .18em; }
+.book-switcher a { display: grid; grid-template-columns: 24px 1fr; gap: 5px; align-items: center; padding: 11px 13px; border-top: 1px solid rgba(81,52,43,.09); font: 500 12px var(--serif); transition: .2s; }
+.book-switcher a b { color: var(--terracotta); font: 600 9px var(--sans); letter-spacing: .08em; }
+.book-switcher a i { grid-column: 2; color: var(--muted); font: normal 9px var(--sans); }
+.book-switcher a:hover { padding-left: 16px; background: rgba(119,58,50,.07); }
+.book-switcher a.current { color: #fff7ea; background: var(--wine); }
+.book-switcher a.current b { color: #e9bf82; }
+@media (max-width: 760px) { .book-switcher { position: absolute; top: 86px; left: 16px; right: 16px; width: auto; grid-template-columns: auto 1fr 1fr; } .book-switcher > span { align-self: center; } .book-switcher a { border-top: 0; border-left: 1px solid rgba(81,52,43,.09); } }
+
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body { margin: 0; color: var(--ink); background: var(--paper); font-family: var(--sans); }

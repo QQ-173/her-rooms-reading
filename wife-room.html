@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive"><meta name="referrer" content="no-referrer">
+  <title>陈府后院 · 交互空间</title>
+  <style>
+    *{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#111210;color:#eee5d8;font-family:Inter,"PingFang SC","Microsoft YaHei",sans-serif}canvas{display:block}.hud{position:fixed;z-index:4;inset:18px 18px auto;display:flex;justify-content:space-between;pointer-events:none}.intro,.progress{padding:14px 16px;border:1px solid #ffffff20;border-radius:12px;background:#171815cc;box-shadow:0 14px 45px #0006;backdrop-filter:blur(12px)}.intro p,.progress p{margin:0;color:#bcb4a8;font-size:10px;line-height:1.6}.intro strong{display:block;margin-bottom:5px;font:18px "Songti SC",serif}.progress{min-width:138px}.progress strong{display:block;margin-bottom:5px;color:#d1af78;font:15px "Songti SC",serif}.dots{display:flex;gap:5px;margin-top:9px}.dots i{width:23px;height:3px;background:#5b574f}.dots i.on{background:#c69c62;box-shadow:0 0 8px #c69c62}.crosshair{position:fixed;z-index:3;left:50%;top:50%;width:8px;height:8px;margin:-4px;border:1px solid #fff8;border-radius:50%;pointer-events:none}.label{position:fixed;z-index:5;display:none;padding:7px 10px;border-radius:7px;color:#201b17;background:#e4cfaa;font:11px "Songti SC",serif;pointer-events:none;box-shadow:0 8px 25px #0007}.panel{position:fixed;z-index:6;right:18px;bottom:18px;width:min(390px,calc(100% - 36px));padding:20px;border:1px solid #ffffff20;border-radius:14px;background:#181916ed;box-shadow:0 22px 60px #0009;backdrop-filter:blur(15px);transform:translateY(calc(100% + 30px));transition:.35s}.panel.show{transform:none}.panel .no{color:#c69c62;font-size:9px;letter-spacing:.2em}.panel h2{margin:8px 0 10px;font:24px "Songti SC",serif}.panel p{margin:0;color:#bcb3a7;font:12px/1.8 "Songti SC",serif}.panel button{position:absolute;right:13px;top:13px;width:30px;height:30px;border:1px solid #ffffff25;border-radius:50%;color:#ddd2c5;background:transparent;cursor:pointer}.help{position:fixed;z-index:4;left:18px;bottom:18px;padding:10px 12px;border-radius:9px;color:#aaa298;background:#151612b8;font-size:9px;pointer-events:none}.help b{color:#dac6a3}.loading{position:fixed;z-index:10;inset:0;display:grid;place-items:center;background:#111210;transition:.5s}.loading.hide{opacity:0;pointer-events:none}.loading span{font:18px "Songti SC",serif;letter-spacing:.2em}.fallback{position:fixed;inset:0;display:none;place-items:center;padding:30px;text-align:center;background:#171815}.fallback.show{display:grid}@media(max-width:600px){.intro{max-width:230px}.progress{display:none}.help{right:18px}.panel{bottom:54px}}
+  </style>
+</head>
+<body>
+  <div class="loading"><span>推开陈府的门……</span></div><div class="fallback"><p>3D 场景暂时未能加载。请检查网络连接后刷新页面。</p></div>
+  <div class="hud"><div class="intro"><strong>陈府后院 · 意象复原</strong><p>先寻找紫藤、箫与镜，最后回到废井。</p></div><div class="progress"><strong>证词 <span id="count">0</span> / 4</strong><p id="state">井盖仍然封闭</p><div class="dots"><i></i><i></i><i></i><i></i></div></div></div>
+  <div class="crosshair"></div><div class="label"></div>
+  <aside class="panel"><span class="no"></span><button aria-label="关闭">×</button><h2></h2><p></p></aside>
+  <div class="help"><b>WASD</b> 移动 · <b>拖动</b> 环顾 · <b>悬停</b> 高亮 · <b>点击</b> 收集</div>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.161.0/build/three.min.js"></script>
+  <script>
+  (()=>{
+    if(!window.THREE){document.querySelector('.loading').classList.add('hide');document.querySelector('.fallback').classList.add('show');return}
+    const T=THREE, scene=new T.Scene();scene.background=new T.Color(0x8c938b);scene.fog=new T.FogExp2(0x777d76,.018);
+    const camera=new T.PerspectiveCamera(60,innerWidth/innerHeight,.1,180);camera.position.set(0,4.4,15);
+    const renderer=new T.WebGLRenderer({antialias:true,powerPreference:'high-performance'});renderer.setPixelRatio(Math.min(devicePixelRatio,1.7));renderer.setSize(innerWidth,innerHeight);renderer.shadowMap.enabled=true;renderer.shadowMap.type=T.PCFSoftShadowMap;renderer.outputColorSpace=T.SRGBColorSpace;renderer.toneMapping=T.ACESFilmicToneMapping;renderer.toneMappingExposure=1.05;document.body.prepend(renderer.domElement);
+    scene.add(new T.HemisphereLight(0xdfe2d6,0x302820,2.05));const sun=new T.DirectionalLight(0xffe2b0,3.2);sun.position.set(-10,18,8);sun.castShadow=true;sun.shadow.mapSize.set(2048,2048);sun.shadow.camera.left=-28;sun.shadow.camera.right=28;sun.shadow.camera.top=25;sun.shadow.camera.bottom=-25;scene.add(sun);
+    const mat=(color,rough=.75,metal=0)=>new T.MeshStandardMaterial({color,roughness:rough,metalness:metal});const plaster=mat(0xb9b3a6,.95),darkWood=mat(0x362b24,.8),wood=mat(0x5c4031,.78),tile=mat(0x282b28,.82),stone=mat(0x77756d,.95),red=mat(0x671c19,.7),gold=mat(0xb38a4e,.45,.25),leaf=mat(0x415948,.9),purple=mat(0x77607d,.8);
+    function mesh(g,m,x=0,y=0,z=0,cast=true,receive=true){const o=new T.Mesh(g,m);o.position.set(x,y,z);o.castShadow=cast;o.receiveShadow=receive;scene.add(o);return o}function box(sx,sy,sz,m,x,y,z){return mesh(new T.BoxGeometry(sx,sy,sz),m,x,y,z)}
+    const ground=mesh(new T.PlaneGeometry(90,90),mat(0x5e6159,1),0,0,0,false,true);ground.rotation.x=-Math.PI/2;
+    // courtyard stone grid
+    for(let x=-11;x<=11;x+=2.25)for(let z=-8;z<=10;z+=2.25){const p=box(2.12,.08,2.12,stone,x,.04,z);p.rotation.y=((x+z)%3)*.015}
+    // compound walls and wings
+    box(32,6,.65,plaster,0,3,-12);box(.65,6,25,plaster,-16,3,.2);box(.65,6,25,plaster,16,3,.2);box(32,6,.65,plaster,0,3,12.5);
+    function roomFront(cx,z,w,label){box(w,5.8,4.6,plaster,cx,2.9,z);box(w+.5,.55,5.2,darkWood,cx,6,z);for(let i=-w/2+1;i<w/2;i+=1.55){const r=box(1.1,3.3,.12,darkWood,cx+i,2.6,z+2.34);for(let s=-.35;s<=.35;s+=.35){const bar=box(.05,3.0,.14,gold,cx+i+s,2.65,z+2.43);bar.material=darkWood}for(let yy=1.4;yy<4;yy+=.65)box(1.0,.05,.14,darkWood,cx+i,yy,z+2.43)}const plaque=box(2,.5,.15,red,cx,5.15,z+2.52);plaque.userData.decor=label}
+    roomFront(-8,-9.2,7,'西厢');roomFront(0,-9.2,7,'北房');roomFront(8,-9.2,7,'东厢');
+    // tiled roofs using layered slabs and ridge tiles
+    function roof(cx,cz,w,d){const a=box(w+.9,.28,d+1,tile,cx,6.55,cz);a.rotation.z=.04;for(let x=-w/2;x<=w/2;x+=.55){const ridge=mesh(new T.CylinderGeometry(.14,.14,d+1,7),tile,cx+x,6.75,cz);ridge.rotation.x=Math.PI/2}box(w+1,.35,.35,darkWood,cx,7.0,cz)}roof(-8,-9.2,7,5);roof(0,-9.2,7,5);roof(8,-9.2,7,5);
+    // corridors
+    for(const x of[-13,13]){for(let z=-9;z<=9;z+=3){box(.35,4,.35,darkWood,x,2,z);box(2.8,.18,3.1,tile,x,4.15,z)}box(3,.25,21,wood,x,.16,0)}
+    // main gate
+    box(4.8,5,.45,darkWood,0,2.5,12.18);for(let y=.8;y<5;y+=.65)box(4.3,.08,.52,gold,0,y,11.92);box(.12,4.6,.52,gold,0,2.5,11.9);
+    // interior furniture visible in Songlian room
+    box(4.5,.35,2.4,wood,0,.75,-8.5);box(4.2,.55,2.1,mat(0x9b8d77,.9),0,1.2,-8.5);for(const x of[-2,2])for(const z of[-.9,.9])box(.3,1.5,.3,darkWood,x,.75,-8.5+z);
+    const table=mesh(new T.CylinderGeometry(1.35,1.45,.22,20),wood,6,.9,-3);for(let i=0;i<4;i++){const a=i*Math.PI/2;box(.22,1.5,.22,darkWood,6+Math.cos(a),.45,-3+Math.sin(a))}
+    // atmospheric dust
+    const pts=[];for(let i=0;i<450;i++)pts.push((Math.random()-.5)*35,Math.random()*11,(Math.random()-.5)*28);const pg=new T.BufferGeometry();pg.setAttribute('position',new T.Float32BufferAttribute(pts,3));scene.add(new T.Points(pg,new T.PointsMaterial({color:0xd8ccb8,size:.035,transparent:true,opacity:.48})));
+    const hotspots=[], clues=new Set();
+    function hotspot(group,id,label,no,text){group.userData.hotspot={id,label,no,text};group.traverse(o=>o.userData.hotspot=group.userData.hotspot);hotspots.push(group);return group}
+    // wisteria trellis
+    const wisteria=new T.Group();scene.add(wisteria);for(const x of[-8,-4])for(const z of[-1.8,1.8]){const p=new T.Mesh(new T.CylinderGeometry(.18,.23,4.2,8),darkWood);p.position.set(x,2.1,z);p.castShadow=true;wisteria.add(p)}for(let x=-8;x<=-4;x+=.8){const beam=new T.Mesh(new T.BoxGeometry(.15,.18,4.4),darkWood);beam.position.set(x,4.25,0);wisteria.add(beam)}for(let i=0;i<46;i++){const fl=new T.Mesh(new T.SphereGeometry(.16+Math.random()*.12,7,6),i%3?purple:leaf);fl.position.set(-8+Math.random()*4,3.45+Math.random()*.9,-1.8+Math.random()*3.6);wisteria.add(fl)}hotspot(wisteria,'wisteria','紫藤','01','花架把美与阴影叠在一起。紫藤不是出口，而是让废井更难被看见的帘幕。');
+    // flute
+    const flute=new T.Group();scene.add(flute);const tube=new T.Mesh(new T.CylinderGeometry(.11,.12,2.5,16),mat(0x91753d,.45));tube.rotation.z=Math.PI/2;tube.position.set(-10,2.15,-2.2);flute.add(tube);for(let i=-.7;i<=.8;i+=.35){const hole=new T.Mesh(new T.SphereGeometry(.045,7,5),mat(0x171511,.8));hole.position.set(-10+i,2.25,-2.2);flute.add(hole)}hotspot(flute,'flute','箫','02','声音可以越过院墙。它暗示宅院之外仍有生活，也因此成为陈府秩序无法完全控制的东西。');
+    // mirror and comb
+    const mirror=new T.Group();scene.add(mirror);const frame=new T.Mesh(new T.BoxGeometry(1.9,2.65,.16),darkWood);frame.position.set(1.8,2.5,-6.8);mirror.add(frame);const glass=new T.Mesh(new T.PlaneGeometry(1.5,2.2),new T.MeshStandardMaterial({color:0xa7b1ac,metalness:.72,roughness:.15}));glass.position.set(1.8,2.5,-6.7);mirror.add(glass);const comb=new T.Mesh(new T.BoxGeometry(.75,.12,.3),gold);comb.position.set(1.8,1.05,-6.2);mirror.add(comb);hotspot(mirror,'mirror','镜与梳','03','镜子记录身份的变化：学生、第四位妻妾、竞争者。每个称谓都在缩小颂莲原本拥有的可能。');
+    // well with lid
+    const well=new T.Group();scene.add(well);for(let y=.25;y<1.35;y+=.28)for(let a=0;a<Math.PI*2;a+=Math.PI/8){const brick=new T.Mesh(new T.BoxGeometry(.72,.22,.34),stone);brick.position.set(5+Math.cos(a)*1.45,y,3+Math.sin(a)*1.45);brick.rotation.y=-a;well.add(brick)}const inside=new T.Mesh(new T.CylinderGeometry(1.15,1.15,.1,32),mat(0x080a09,.2),5,.2,3);well.add(inside);const lid=new T.Mesh(new T.CylinderGeometry(1.52,1.52,.18,32),darkWood);lid.position.set(5,1.38,3);well.add(lid);well.userData.lid=lid;hotspot(well,'well','废井','04','井保存着宅院要求所有人忘记的历史。真正的谜底不是谁把谁推入井中，而是谁拥有把死亡命名为“失足”的权力。');
+    const ray=new T.Raycaster(),mouse=new T.Vector2(),outline=new T.BoxHelper(undefined,0xe7c16f);outline.material.depthTest=false;outline.material.transparent=true;outline.material.opacity=.95;outline.visible=false;scene.add(outline);let hovered=null;
+    const label=document.querySelector('.label'),panel=document.querySelector('.panel');function findHot(o){while(o&&!o.userData.hotspot)o=o.parent;return o?.userData.hotspot?o:null}
+    function point(e){mouse.x=e.clientX/innerWidth*2-1;mouse.y=-(e.clientY/innerHeight)*2+1;ray.setFromCamera(mouse,camera);const hits=ray.intersectObjects(hotspots,true);return hits.length?findHot(hits[0].object):null}
+    addEventListener('pointermove',e=>{if(drag)return;const hit=point(e);hovered=hit;outline.visible=!!hit;if(hit){outline.setFromObject(hit);label.style.display='block';label.style.left=Math.min(e.clientX+14,innerWidth-120)+'px';label.style.top=(e.clientY+12)+'px';label.textContent=hit.userData.hotspot.label;renderer.domElement.style.cursor='pointer'}else{label.style.display='none';renderer.domElement.style.cursor='grab'}});
+    addEventListener('click',e=>{if(moved)return;const hit=point(e);if(!hit)return;const c=hit.userData.hotspot;if(c.id==='well'&&!['wisteria','flute','mirror'].every(x=>clues.has(x))){show(c,'井盖被封住了。先去寻找宅院里的三件证词，再回到这里。');return}if(!clues.has(c.id)){clues.add(c.id);if(c.id==='well'){const lid=well.userData.lid;lid.rotation.z=.8;lid.position.x+=1.3}update();try{parent.postMessage({type:'wife-room-clue',label:c.label,count:clues.size},'*')}catch{}}show(c,c.text)});
+    function show(c,text){panel.querySelector('.no').textContent='CLUE · '+c.no;panel.querySelector('h2').textContent=c.label;panel.querySelector('p').textContent=text;panel.classList.add('show')}panel.querySelector('button').onclick=()=>panel.classList.remove('show');
+    function update(){document.querySelector('#count').textContent=clues.size;document.querySelectorAll('.dots i').forEach((d,i)=>d.classList.toggle('on',i<clues.size));document.querySelector('#state').textContent=clues.size<3?'井盖仍然封闭':clues.size===3?'废井已经可以开启':'因果链已经完成'}
+    let yaw=0,pitch=-.12,drag=false,moved=false,sx=0,sy=0;renderer.domElement.addEventListener('pointerdown',e=>{drag=true;moved=false;sx=e.clientX;sy=e.clientY;renderer.domElement.setPointerCapture(e.pointerId)});renderer.domElement.addEventListener('pointermove',e=>{if(!drag)return;const dx=e.clientX-sx,dy=e.clientY-sy;if(Math.abs(dx)+Math.abs(dy)>3)moved=true;yaw-=dx*.004;pitch=Math.max(-.6,Math.min(.38,pitch-dy*.003));sx=e.clientX;sy=e.clientY});renderer.domElement.addEventListener('pointerup',()=>drag=false);
+    const keys={};addEventListener('keydown',e=>keys[e.key.toLowerCase()]=true);addEventListener('keyup',e=>keys[e.key.toLowerCase()]=false);const clock=new T.Clock();
+    function animate(){requestAnimationFrame(animate);const dt=Math.min(clock.getDelta(),.035),speed=5.2*dt;const forward=new T.Vector3(-Math.sin(yaw),0,-Math.cos(yaw)),side=new T.Vector3(Math.cos(yaw),0,-Math.sin(yaw));if(keys.w)camera.position.addScaledVector(forward,speed);if(keys.s)camera.position.addScaledVector(forward,-speed);if(keys.a)camera.position.addScaledVector(side,-speed);if(keys.d)camera.position.addScaledVector(side,speed);camera.position.x=Math.max(-14.5,Math.min(14.5,camera.position.x));camera.position.z=Math.max(-10.5,Math.min(11,camera.position.z));camera.rotation.order='YXZ';camera.rotation.y=yaw;camera.rotation.x=pitch;renderer.render(scene,camera)}animate();
+    addEventListener('resize',()=>{camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight)});setTimeout(()=>document.querySelector('.loading').classList.add('hide'),650);
+  })();
+  </script>
+</body>
+</html>
