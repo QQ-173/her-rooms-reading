@@ -77,6 +77,7 @@
     }));
 
     $('.puzzle-reset', root).addEventListener('click', () => {
+      location.reload(); return;
       Object.entries(home).forEach(([name, zone]) => zone.append($(`[data-doll="${name}"]`, root)));
       cellar.style.boxShadow = ''; $$('.stage-next', root).forEach(b => b.hidden = true); $$('.stage-feedback', root).forEach(p => p.textContent = '重新开始：观察动作之间的关系，而不是寻找孤立的密码。');
       $$('.timeline-slots', root).forEach(x => x.replaceChildren()); $$('button[data-order]', root).forEach(b => { b.disabled = false; b.classList.remove('selected'); });
@@ -128,6 +129,7 @@
     }));
 
     $('.puzzle-reset', root).addEventListener('click', () => {
+      location.reload(); return;
       active = []; attempts = 0; gazeExpected = 0; heard = false; playing = false; input = []; wordExpected = 0;
       lights.forEach(b => b.classList.remove('on')); $$('.zero-sum-meter i', root).forEach(b => b.classList.remove('on')); gazeButtons.forEach(b => b.classList.remove('chosen')); noteButtons.forEach(b => b.classList.remove('flash')); wordButtons.forEach(b => { b.disabled = false; b.style.opacity = '1'; });
       line.textContent = ''; $('.well-reveal', root).hidden = true; $$('.stage-next', root).forEach(b => b.hidden = true); $$('.stage-feedback', root).forEach(p => p.textContent = '谜题已重置。先观察规则怎样改变你的动作。'); ctl.dots.forEach(d => d.classList.remove('done')); ctl.showStage(0);
