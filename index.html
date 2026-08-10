@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="puzzle-lab.css">
   <link rel="stylesheet" href="sound-design.css">
+  <link rel="stylesheet" href="reading-journey.css">
 </head>
 <body>
   <a class="skip-link" href="#main">跳到主要内容</a>
@@ -163,6 +164,16 @@
       </div>
     </section>
 
+    <section id="reading-journey" class="reading-journey genius-journey" data-book="genius" aria-labelledby="genius-journey-title">
+      <div class="journey-head"><div><p class="eyeline">FROM PLAY TO READING · 001</p><h2 id="genius-journey-title">别让谜题替你读完这本书</h2></div><p>完成一个短游戏，选择你真正想追进原著的问题。网站保存的是你的好奇，而不是替你提供标准答案。</p></div>
+      <div class="reading-state" role="group" aria-label="我的阅读状态"><span>我的状态</span><button class="active" data-state="unread" type="button">还没读</button><button data-state="reading" type="button">正在读</button><button data-state="finished" type="button">已经读完</button></div>
+      <div class="journey-grid">
+        <article class="gateway-game" data-game="match"><h3>小游戏：把物件还给问题</h3><p>不是寻找相同图案，而是把物品与它在阅读中留下的问题配成三组。</p><div class="match-board"><button class="match-card" data-pair="dolls" type="button">坠落的玩偶</button><button class="match-card" data-pair="shoe" type="button">谁拥有创造？</button><button class="match-card" data-pair="pages" type="button">共同想象未来</button><button class="match-card" data-pair="dolls" type="button">谁先越过边界？</button><button class="match-card" data-pair="pages" type="button">《小妇人》</button><button class="match-card" data-pair="shoe" type="button">男式旅行鞋</button></div><p class="game-feedback" aria-live="polite">配对成功后，阅读入口会打开。</p></article>
+        <article class="reading-bridge"><div class="bridge-lock">先完成左侧的三组语义配对。<br>阅读问题不会提前剧透。</div><div class="bridge-content" hidden><h3>带着一个未完成的问题开始</h3><p>选择一个问题。它会成为你的读前书签，在“正在读”状态中继续保留。</p><div class="question-cards"><button class="question-card" type="button">莉拉从什么时候开始把莱农看作自己的另一种可能？</button><button class="question-card" type="button">教育是在发现天赋，还是只承认特定形式的天赋？</button><button class="question-card" type="button">那双鞋第一次改变所有者时，谁失去了署名？</button></div><div class="selected-question">尚未选择读前问题。</div><div class="acquire-actions"><a class="primary" href="https://e.dangdang.com/products/1900653911.html" target="_blank" rel="noopener">正版电子书 ↗</a><a href="https://search.dangdang.com/?key=%E6%88%91%E7%9A%84%E5%A4%A9%E6%89%8D%E5%A5%B3%E5%8F%8B" target="_blank" rel="noopener">查找纸质书 ↗</a><a href="https://search.worldcat.org/search?q=%E6%88%91%E7%9A%84%E5%A4%A9%E6%89%8D%E5%A5%B3%E5%8F%8B" target="_blank" rel="noopener">图书馆查找 ↗</a><button class="start-plan" type="button">我已有这本书，开始计划</button></div></div></article>
+        <article class="reading-plan" hidden><h3>7 天轻量共读</h3><p>不按照固定页码，避免版本差异；每天在一个自然叙事停靠点暂停，并回来完成一次记录。</p><div class="plan-days"><label class="plan-day"><input type="checkbox"><b>第 1 天</b><small>两个玩偶与第一次共同越界</small></label><label class="plan-day"><input type="checkbox"><b>第 2 天</b><small>学校如何区别两个女孩</small></label><label class="plan-day"><input type="checkbox"><b>第 3 天</b><small>街区里的家庭与暴力</small></label><label class="plan-day"><input type="checkbox"><b>第 4 天</b><small>《小妇人》与写作想象</small></label><label class="plan-day"><input type="checkbox"><b>第 5 天</b><small>教育道路第一次分开</small></label><label class="plan-day"><input type="checkbox"><b>第 6 天</b><small>鞋的设计进入交易</small></label><label class="plan-day"><input type="checkbox"><b>第 7 天</b><small>回看“天才朋友”的称呼</small></label></div><div class="plan-progress"><i></i></div><p class="plan-summary">完成 0 / 7 天</p><div class="finished-note" hidden>读完后，请回到标题镜像重新选择一次。比较读前和读后的答案，比“答对”更重要。</div></article>
+      </div>
+    </section>
+
     <section class="reading-instrument genius-instrument" data-sound-world="genius" aria-labelledby="genius-sound-title">
       <div class="instrument-head">
         <div><p class="instrument-kicker">RELATIONSHIP INSTRUMENT · 001</p><h2 id="genius-sound-title">把友谊调到你听见的位置</h2></div>
@@ -294,5 +305,6 @@
   <script src="app.js"></script>
   <script src="puzzle-lab.js"></script>
   <script src="sound-design.js"></script>
+  <script src="reading-journey.js"></script>
 </body>
 </html>
