@@ -58,7 +58,9 @@
   const content = $('.bridge-content', journey);
   function unlockBridge(message, announce = true) {
     lock.hidden = true;
+    lock.style.display = 'none';
     content.hidden = false;
+    content.style.display = '';
     write('game-complete', true);
     if (announce) notify(message);
   }

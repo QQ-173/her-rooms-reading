@@ -9,9 +9,10 @@
   <link rel="stylesheet" href="wife-style.css">
   <link rel="stylesheet" href="puzzle-lab.css">
   <link rel="stylesheet" href="sound-design.css">
-  <link rel="stylesheet" href="reading-journey.css?v=2">
+  <link rel="stylesheet" href="reading-journey.css?v=3">
+  <link rel="stylesheet" href="experience-redesign.css?v=1">
 </head>
-<body>
+<body class="wife-page">
   <a class="skip" href="#main">跳到主要内容</a>
   <header class="topbar">
     <a class="brand" href="index.html"><span>她</span><b>她的房间<small>HER ROOMS</small></b></a>
@@ -26,6 +27,13 @@
   </aside>
 
   <main id="main">
+    <section class="experience-guide" id="experience-start" aria-labelledby="experience-title">
+      <p class="exp-kicker">START HERE · 阅读状态</p>
+      <h1 id="experience-title">先选择你的进入方式。</h1>
+      <p class="guide-lead">没读过原著时，网站只解释宅院的基本规则，不要求记住四个人的命运。读过之后，才打开关于责任、伤害和制度的深度谜题。</p>
+      <div class="reader-choice"><a data-reader-link="unread" href="wife-concubines.html?reader=unread#experience-start">我还没读过 · 无剧透</a><a data-reader-link="finished" href="wife-concubines.html?reader=finished#experience-start">我已经读过 · 深度模式</a></div>
+      <nav class="guide-path" aria-label="体验顺序"><a href="#book"><b>STEP 01 · 2分钟</b><strong>认识宅院规则</strong><small>只提供理解空间所需的信息</small></a><a href="#courtyard"><b>STEP 02 · 5分钟</b><strong>进入陈府后院</strong><small>观察门、窗、回廊与物件</small></a><a href="#reading-journey"><b>STEP 03 · 3分钟</b><strong>完成一次分配</strong><small>带着被排除的人进入阅读</small></a></nav>
+    </section>
     <section class="hero" id="top">
       <div class="wash wash-one"></div><div class="wash wash-two"></div>
       <div class="hero-copy">
@@ -115,10 +123,10 @@
     </section>
 
     <section id="reading-journey" class="reading-journey courtyard-journey" data-book="courtyard" aria-labelledby="courtyard-journey-title">
-      <div class="journey-head"><div><p class="eyeline">FROM PLAY TO READING · 002</p><h2 id="courtyard-journey-title">破解宅院之后，去怀疑你的答案</h2></div><p>先体验一次不可能公平的分配，再选择一个需要进入原著才能继续追问的问题。</p></div>
+      <div class="journey-head"><div><p class="eyeline">FROM PLAY TO READING · 002</p><h2 id="courtyard-journey-title">先感受规则，再进入故事</h2></div><p>不需要认识四位人物的完整经历。你只需要做一次分配，观察一个看似公平的决定如何必然留下被排除的人。</p></div>
       <div class="reading-state" role="group" aria-label="我的阅读状态"><span>我的状态</span><button class="active" data-state="unread" type="button">还没读</button><button data-state="reading" type="button">正在读</button><button data-state="finished" type="button">已经读完</button></div>
       <div class="journey-grid">
-        <article class="gateway-game" data-game="tokens"><h3>小游戏：三枚安全筹码</h3><p>四间房只有三枚筹码。点击房间进行分配，看看“最合理”的决定会把谁留在规则之外。</p><div class="token-count"><i></i><i></i><i></i></div><div class="room-allocation"><button type="button">毓如</button><button type="button">卓云</button><button type="button">梅珊</button><button type="button">颂莲</button></div><p class="game-feedback" aria-live="polite">剩余 3 枚。你可以重新点击撤回。</p></article>
+        <article class="gateway-game" data-game="tokens"><h3>小游戏：三枚安全筹码</h3><p>规则只有一句：四间房、三枚筹码。你不需要判断谁更值得，只需点击任意三个人，观察规则本身造成的结果。</p><div class="token-count"><i></i><i></i><i></i></div><div class="room-allocation"><button type="button">毓如</button><button type="button">卓云</button><button type="button">梅珊</button><button type="button">颂莲</button></div><p class="game-feedback" aria-live="polite">剩余 3 枚。任意选择三个人；没有错误答案。</p></article>
         <article class="reading-bridge"><div class="bridge-lock">完成三枚筹码的分配后，阅读入口会打开。<br>没有一种分法会被判为正确。</div><div class="bridge-content" hidden><h3>带着被排除的人开始阅读</h3><p>选择一个问题。原著会让你不断修改自己对人物的道德判断。</p><div class="question-cards"><button class="question-card" type="button">颂莲何时从规则的观察者变成了参与者？</button><button class="question-card" type="button">卓云的行为有多少来自性格，有多少来自生存条件？</button><button class="question-card" type="button">为什么“疯癫”总能替宅院解释无法处理的女性？</button></div><div class="selected-question">尚未选择读前问题。</div><div class="acquire-actions"><a class="primary" href="https://product.dangdang.com/product.aspx?product_id=28549085" target="_blank" rel="noopener">查看正版纸书 ↗</a><a href="https://book.douban.com/subject/26342604/" target="_blank" rel="noopener">版本与书评 ↗</a><a href="https://search.worldcat.org/search?q=%E5%A6%BB%E5%A6%BE%E6%88%90%E7%BE%A4+%E8%8B%8F%E7%AB%A5" target="_blank" rel="noopener">图书馆查找 ↗</a><button class="start-plan" type="button">我已有这本书，开始计划</button></div></div></article>
         <article class="reading-plan" hidden><h3>7 天轻量共读</h3><p>每天只带着一个观察任务进入文本，避免网站提前替人物作出判决。</p><div class="plan-days"><label class="plan-day"><input type="checkbox"><b>第 1 天</b><small>颂莲进入陈府时保留了什么</small></label><label class="plan-day"><input type="checkbox"><b>第 2 天</b><small>四个位置如何分配资源</small></label><label class="plan-day"><input type="checkbox"><b>第 3 天</b><small>亲近何时变成信息</small></label><label class="plan-day"><input type="checkbox"><b>第 4 天</b><small>梅珊的声音为何危险</small></label><label class="plan-day"><input type="checkbox"><b>第 5 天</b><small>紫藤与废井同时出现时</small></label><label class="plan-day"><input type="checkbox"><b>第 6 天</b><small>谁拥有解释事件的权力</small></label><label class="plan-day"><input type="checkbox"><b>第 7 天</b><small>重新判断“谁伤害了谁”</small></label></div><div class="plan-progress"><i></i></div><p class="plan-summary">完成 0 / 7 天</p><div class="finished-note" hidden>读完后重新分配三枚筹码：你的选择可能不变，但你对“被排除者”的理解应该已经改变。</div></article>
       </div>
@@ -165,6 +173,7 @@
   <script src="wife-app.js"></script>
   <script src="puzzle-lab.js"></script>
   <script src="sound-design.js"></script>
-  <script src="reading-journey.js?v=2"></script>
+  <script src="reading-journey.js?v=3"></script>
+  <script src="experience-redesign.js?v=1"></script>
 </body>
 </html>

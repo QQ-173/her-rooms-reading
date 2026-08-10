@@ -9,12 +9,13 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="puzzle-lab.css">
   <link rel="stylesheet" href="sound-design.css">
-  <link rel="stylesheet" href="reading-journey.css?v=2">
+  <link rel="stylesheet" href="reading-journey.css?v=3">
+  <link rel="stylesheet" href="experience-redesign.css?v=1">
 </head>
 <body>
   <a class="skip-link" href="#main">跳到主要内容</a>
   <header class="site-header">
-    <a class="brand" href="#top" aria-label="她的房间首页">
+    <a class="brand" href="index.html" aria-label="她的房间首页">
       <span class="brand-mark" aria-hidden="true">她</span>
       <span><b>她的房间</b><small>HER ROOMS</small></span>
     </a>
@@ -36,7 +37,48 @@
     </form>
   </header>
 
-  <main id="main">
+  <section class="platform-home" aria-labelledby="platform-title">
+    <div class="home-intro">
+      <div>
+        <p class="home-kicker">HER ROOMS · 女性文学互动阅读</p>
+        <h1 id="platform-title">先进入她的房间，<br><em>再决定读她的故事。</em></h1>
+      </div>
+      <aside>
+        <p>你不需要先读过原著。这里用空间、物件和一个没有标准答案的问题，帮你发现下一本真正想读的女性文学。</p>
+        <a class="home-primary" href="#choose-a-room">选择第一间房 ↓</a>
+      </aside>
+    </div>
+    <section class="home-method" aria-labelledby="method-title">
+      <header><h2 id="method-title">第一次来，只做三件事</h2><p>游戏不是考试，也不要求记住人物关系。网站负责提供必要背景，你只需要跟随好奇。</p></header>
+      <div class="method-grid">
+        <article class="method-step"><b>01 · 看见</b><h3>用两分钟认识处境</h3><p>先了解人物此刻面对的环境，不提前讲完命运，也不要求文学知识。</p></article>
+        <article class="method-step"><b>02 · 触碰</b><h3>进入一间可玩的房间</h3><p>移动、观察并触碰物件。每件物品都会告诉你“它为什么值得注意”。</p></article>
+        <article class="method-step"><b>03 · 带走</b><h3>选择一个读前问题</h3><p>体验不会给出完整答案，而会帮你找到一个只能去原著里继续追问的问题。</p></article>
+      </div>
+    </section>
+    <section class="home-library" id="choose-a-room" aria-labelledby="library-title">
+      <header><h2 id="library-title">选择一间房</h2><p>如果还没读过，请选择“无剧透进入”；读过的读者可以直接打开深度谜题与讨论。</p></header>
+      <div class="home-books">
+        <article class="home-book genius">
+          <span class="book-no">ROOM 01 · 那不勒斯</span><h3>我的天才女友</h3><p>两个女孩、一间鞋匠铺，以及“谁有资格被称为天才”的问题。</p>
+          <div class="book-entry-actions"><a href="index.html?book=genius&reader=unread#experience-start">没读过 · 无剧透进入</a><a href="index.html?book=genius&reader=finished#experience-start">已经读过 · 深度探索</a></div>
+        </article>
+        <article class="home-book courtyard">
+          <span class="book-no">ROOM 02 · 陈府后院</span><h3>妻妾成群</h3><p>四间房、三枚安全筹码，以及一套要求女性互相竞争的规则。</p>
+          <div class="book-entry-actions"><a href="wife-concubines.html?reader=unread#experience-start">没读过 · 无剧透进入</a><a href="wife-concubines.html?reader=finished#experience-start">已经读过 · 深度探索</a></div>
+        </article>
+      </div>
+    </section>
+  </section>
+
+  <main id="main" class="book-experience">
+    <section class="experience-guide" id="experience-start" aria-labelledby="experience-title">
+      <p class="exp-kicker">START HERE · 阅读状态</p>
+      <h1 id="experience-title">先告诉我们：<br>你读过这本书吗？</h1>
+      <p class="guide-lead">没有读过也完全可以开始。新读者模式只提供理解体验所需的背景；深度谜题和剧情讨论会留到读后。</p>
+      <div class="reader-choice"><a data-reader-link="unread" href="index.html?book=genius&reader=unread#experience-start">我还没读过 · 无剧透</a><a data-reader-link="finished" href="index.html?book=genius&reader=finished#experience-start">我已经读过 · 深度模式</a></div>
+      <nav class="guide-path" aria-label="体验顺序"><a href="#book"><b>STEP 01 · 2分钟</b><strong>认识故事处境</strong><small>只看理解房间所需的信息</small></a><a href="#room"><b>STEP 02 · 5分钟</b><strong>探索鞋匠铺</strong><small>触碰物件，不需要猜原著情节</small></a><a href="#reading-journey"><b>STEP 03 · 3分钟</b><strong>带走一个问题</strong><small>决定是否进入原著继续寻找</small></a></nav>
+    </section>
     <aside class="book-switcher" aria-label="书目切换">
       <span>正在阅读</span>
       <a class="current" href="index.html"><b>01</b> 我的天才女友</a>
@@ -165,10 +207,10 @@
     </section>
 
     <section id="reading-journey" class="reading-journey genius-journey" data-book="genius" aria-labelledby="genius-journey-title">
-      <div class="journey-head"><div><p class="eyeline">FROM PLAY TO READING · 001</p><h2 id="genius-journey-title">别让谜题替你读完这本书</h2></div><p>完成一个短游戏，选择你真正想追进原著的问题。网站保存的是你的好奇，而不是替你提供标准答案。</p></div>
+      <div class="journey-head"><div><p class="eyeline">FROM PLAY TO READING · 001</p><h2 id="genius-journey-title">现在，把好奇带进原著</h2></div><p>不需要读过这本书。前面的房间已经提供了全部线索；完成一次简单连接，再选择你真正想继续追问的问题。</p></div>
       <div class="reading-state" role="group" aria-label="我的阅读状态"><span>我的状态</span><button class="active" data-state="unread" type="button">还没读</button><button data-state="reading" type="button">正在读</button><button data-state="finished" type="button">已经读完</button></div>
       <div class="journey-grid">
-        <article class="gateway-game" data-game="match"><h3>小游戏：把物件还给问题</h3><p>不是寻找相同图案，而是把物品与它在阅读中留下的问题配成三组。</p><div class="match-board"><button class="match-card" data-pair="dolls" type="button">坠落的玩偶</button><button class="match-card" data-pair="shoe" type="button">谁拥有创造？</button><button class="match-card" data-pair="pages" type="button">共同想象未来</button><button class="match-card" data-pair="dolls" type="button">谁先越过边界？</button><button class="match-card" data-pair="pages" type="button">《小妇人》</button><button class="match-card" data-pair="shoe" type="button">男式旅行鞋</button></div><p class="game-feedback" aria-live="polite">配对成功后，阅读入口会打开。</p></article>
+        <article class="gateway-game" data-game="match"><h3>小游戏：物件留下了什么问题？</h3><p>把三个刚刚见过的物件，和它们最直接引出的疑问连接起来。点错没有惩罚，也不需要原著知识。</p><div class="match-board"><button class="match-card" data-pair="dolls" type="button">坠落的玩偶</button><button class="match-card" data-pair="shoe" type="button">谁拥有创造？</button><button class="match-card" data-pair="pages" type="button">共同想象未来</button><button class="match-card" data-pair="dolls" type="button">谁先越过边界？</button><button class="match-card" data-pair="pages" type="button">《小妇人》</button><button class="match-card" data-pair="shoe" type="button">男式旅行鞋</button></div><p class="game-feedback" aria-live="polite">先任选一张，再选择与它最相关的一张。三组完成后进入阅读选择。</p></article>
         <article class="reading-bridge"><div class="bridge-lock">先完成左侧的三组语义配对。<br>阅读问题不会提前剧透。</div><div class="bridge-content" hidden><h3>带着一个未完成的问题开始</h3><p>选择一个问题。它会成为你的读前书签，在“正在读”状态中继续保留。</p><div class="question-cards"><button class="question-card" type="button">莉拉从什么时候开始把莱农看作自己的另一种可能？</button><button class="question-card" type="button">教育是在发现天赋，还是只承认特定形式的天赋？</button><button class="question-card" type="button">那双鞋第一次改变所有者时，谁失去了署名？</button></div><div class="selected-question">尚未选择读前问题。</div><div class="acquire-actions"><a class="primary" href="https://e.dangdang.com/products/1900653911.html" target="_blank" rel="noopener">正版电子书 ↗</a><a href="https://search.dangdang.com/?key=%E6%88%91%E7%9A%84%E5%A4%A9%E6%89%8D%E5%A5%B3%E5%8F%8B" target="_blank" rel="noopener">查找纸质书 ↗</a><a href="https://search.worldcat.org/search?q=%E6%88%91%E7%9A%84%E5%A4%A9%E6%89%8D%E5%A5%B3%E5%8F%8B" target="_blank" rel="noopener">图书馆查找 ↗</a><button class="start-plan" type="button">我已有这本书，开始计划</button></div></div></article>
         <article class="reading-plan" hidden><h3>7 天轻量共读</h3><p>不按照固定页码，避免版本差异；每天在一个自然叙事停靠点暂停，并回来完成一次记录。</p><div class="plan-days"><label class="plan-day"><input type="checkbox"><b>第 1 天</b><small>两个玩偶与第一次共同越界</small></label><label class="plan-day"><input type="checkbox"><b>第 2 天</b><small>学校如何区别两个女孩</small></label><label class="plan-day"><input type="checkbox"><b>第 3 天</b><small>街区里的家庭与暴力</small></label><label class="plan-day"><input type="checkbox"><b>第 4 天</b><small>《小妇人》与写作想象</small></label><label class="plan-day"><input type="checkbox"><b>第 5 天</b><small>教育道路第一次分开</small></label><label class="plan-day"><input type="checkbox"><b>第 6 天</b><small>鞋的设计进入交易</small></label><label class="plan-day"><input type="checkbox"><b>第 7 天</b><small>回看“天才朋友”的称呼</small></label></div><div class="plan-progress"><i></i></div><p class="plan-summary">完成 0 / 7 天</p><div class="finished-note" hidden>读完后，请回到标题镜像重新选择一次。比较读前和读后的答案，比“答对”更重要。</div></article>
       </div>
@@ -305,6 +347,7 @@
   <script src="app.js"></script>
   <script src="puzzle-lab.js"></script>
   <script src="sound-design.js"></script>
-  <script src="reading-journey.js?v=2"></script>
+  <script src="reading-journey.js?v=3"></script>
+  <script src="experience-redesign.js?v=1"></script>
 </body>
 </html>
