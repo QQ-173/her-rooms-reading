@@ -7,6 +7,7 @@
   <meta name="description" content="进入女性文学人物的房间，通过3D探索、谜题与讨论重新阅读经典。">
   <title>她的房间｜女性文学互动社区</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="puzzle-lab.css">
 </head>
 <body>
   <a class="skip-link" href="#main">跳到主要内容</a>
@@ -120,6 +121,47 @@
       </div>
     </section>
 
+    <section class="deep-puzzle genius-puzzle" id="deep-puzzle" data-puzzle="genius" aria-labelledby="genius-puzzle-title">
+      <div class="puzzle-head">
+        <div><p class="puzzle-kicker">DEEP READING PUZZLE · 001</p><h2 id="genius-puzzle-title">天才是谁的名字？</h2></div>
+        <p>这里没有脱离文本的密码。你所做的每个动作——交换、排序、追踪归属——都会改变“天才”这个词指向谁。</p>
+      </div>
+      <div class="puzzle-workbench">
+        <div class="puzzle-status"><strong>共同书写</strong><span class="puzzle-progress-text">阶段 1 / 4 · 双影</span><div class="stage-dots"><i></i><i></i><i></i><i></i></div><button class="puzzle-reset" type="button">重置</button></div>
+
+        <article class="puzzle-card active" data-stage="0">
+          <div class="stage-heading"><span>01</span><div><h3>让两个影子同时出现</h3><p>点击玩偶，让它在女孩手中与地下室之间移动。只有一个人越过边界，不会构成她们共同的故事。</p></div></div>
+          <div class="shadow-board">
+            <div class="shadow-zone" data-zone="lenu"><b>莱农</b><button class="doll-piece" data-doll="tina" type="button">蒂娜</button></div>
+            <div class="shadow-zone" data-zone="lila"><b>莉拉</b><button class="doll-piece" data-doll="nu" type="button">努</button></div>
+            <div class="shadow-zone cellar" data-zone="cellar"><b>地下室</b><small>等待两个影子</small></div>
+          </div>
+          <p class="stage-feedback" aria-live="polite">提示：玩偶不是钥匙，两个人共同越界才是。</p><button class="stage-next" type="button" hidden>继续：重建时间 →</button>
+        </article>
+
+        <article class="puzzle-card" data-stage="1">
+          <div class="stage-heading"><span>02</span><div><h3>把成长放回时间里</h3><p>依次点击四件物品。错误不会扣分，但会提醒你：后来的意义不能被提前知道。</p></div></div>
+          <div class="timeline-pool"><button data-order="2">《蓝色仙女》</button><button data-order="0">坠落的玩偶</button><button data-order="3">男式旅行鞋</button><button data-order="1">《小妇人》</button></div>
+          <div class="timeline-slots" aria-label="已经选择的时间线"></div>
+          <p class="stage-feedback" aria-live="polite">从她们第一次共同面对恐惧开始。</p><button class="stage-next" type="button" hidden>继续：追踪归属 →</button>
+        </article>
+
+        <article class="puzzle-card" data-stage="2">
+          <div class="stage-heading"><span>03</span><div><h3>一双鞋离谁越来越远？</h3><p>按鞋进入世界的顺序选择：最初的想象、双手的劳动、进入交易的资金、最后被确认的所有权。</p></div></div>
+          <div class="ownership-path"><button data-order="2">资本介入</button><button data-order="0">莉拉的设计</button><button data-order="3">所有权</button><button data-order="1">鞋匠铺的劳动</button></div>
+          <div class="ownership-result"><span>想象</span><span>制作</span><span>交易</span><span>归属</span></div>
+          <p class="stage-feedback" aria-live="polite">每向右一步，创造者与作品之间就多一道别人的名字。</p><button class="stage-next" type="button" hidden>继续：面对标题 →</button>
+        </article>
+
+        <article class="puzzle-card" data-stage="3">
+          <div class="stage-heading"><span>04</span><div><h3>把“天才朋友”还给谁？</h3><p>这是解释，不是标准答案。选择一面镜子，网站会记录你此刻如何理解标题。</p></div></div>
+          <div class="mirror-choices"><button data-answer="lila" type="button">莉拉</button><button data-answer="lenu" type="button">莱农</button><button data-answer="each" type="button">彼此</button></div>
+          <div class="interpretation" hidden></div>
+          <p class="stage-feedback" aria-live="polite"></p>
+        </article>
+      </div>
+    </section>
+
     <section class="reading-section section-shell" id="reading" aria-labelledby="reading-title">
       <div class="section-heading compact">
         <div><p class="eyebrow">READING ARCHIVE</p><h2 id="reading-title">阅读档案</h2></div>
@@ -230,5 +272,6 @@
 
   <div class="toast" role="status" aria-live="polite"></div>
   <script src="app.js"></script>
+  <script src="puzzle-lab.js"></script>
 </body>
 </html>

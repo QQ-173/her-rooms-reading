@@ -7,6 +7,7 @@
   <meta name="description" content="进入《妻妾成群》的陈府后院，通过交互空间阅读颂莲、废井与紫藤背后的女性命运。">
   <title>妻妾成群｜她的房间</title>
   <link rel="stylesheet" href="wife-style.css">
+  <link rel="stylesheet" href="puzzle-lab.css">
 </head>
 <body>
   <a class="skip" href="#main">跳到主要内容</a>
@@ -75,6 +76,42 @@
       <article class="portrait" aria-live="polite"><span class="portrait-no">04</span><div><p id="woman-role">颂莲 · 新进入者</p><h3 id="woman-title">她带着新式教育进入旧式婚姻，却很快学会用旧规则保护自己。</h3><p id="woman-body">颂莲既是受害者，也是规则的参与者。她的变化让小说最尖锐的问题浮现：个人是否能够在不伤害他人的情况下，从一个以伤害为基础的系统中获益？</p></div><div class="portrait-mark" id="woman-mark">颂</div></article>
     </section>
 
+    <section class="deep-puzzle courtyard-puzzle" id="courtyard-puzzle" data-puzzle="courtyard" aria-labelledby="courtyard-puzzle-title">
+      <div class="puzzle-head">
+        <div><p class="puzzle-kicker">DEEP READING PUZZLE · 002</p><h2 id="courtyard-puzzle-title">为什么没有人能赢？</h2></div>
+        <p>谜题不会让你扮演陈府的胜利者。你会先尝试掌握规则，然后亲自发现：这套规则的功能正是让所有人互相消耗。</p>
+      </div>
+      <div class="puzzle-workbench">
+        <div class="puzzle-status"><strong>宅院回路</strong><span class="puzzle-progress-text">阶段 1 / 4 · 零和灯火</span><div class="stage-dots"><i></i><i></i><i></i><i></i></div><button class="puzzle-reset" type="button">重置</button></div>
+
+        <article class="puzzle-card active" data-stage="0">
+          <div class="stage-heading"><span>01</span><div><h3>试着同时点亮四间房</h3><p>点击房间分配关注。每当一间亮起，另一间就会熄灭。请不要急着寻找正确组合，先观察规则本身。</p></div></div>
+          <div class="room-lights"><button class="room-light" data-room="0"><b>毓如</b></button><button class="room-light" data-room="1"><b>卓云</b></button><button class="room-light" data-room="2"><b>梅珊</b></button><button class="room-light" data-room="3"><b>颂莲</b></button></div>
+          <div class="zero-sum-meter"><i></i><i></i><i></i><i></i></div>
+          <p class="stage-feedback" aria-live="polite">目标看似是四间全亮，但宅院只允许两盏灯同时存在。</p><button class="stage-next" type="button" hidden>承认规则无解 →</button>
+        </article>
+
+        <article class="puzzle-card" data-stage="1">
+          <div class="stage-heading"><span>02</span><div><h3>重建互相监视的回路</h3><p>依次选择五个词，让资源如何变成惩罚的过程闭合成环。</p></div></div>
+          <div class="gaze-grid"><button data-order="3">惩罚</button><button data-order="0">身份</button><button data-order="4">沉默</button><button data-order="2">竞争</button><button data-order="1">资源</button></div>
+          <p class="stage-feedback" aria-live="polite">从一个人被安放在宅院中的“位置”开始。</p><button class="stage-next" type="button" hidden>继续：听见墙外 →</button>
+        </article>
+
+        <article class="puzzle-card" data-stage="2">
+          <div class="stage-heading"><span>03</span><div><h3>记住越过院墙的箫声</h3><p>点击“听一遍”，观察四扇窗的亮起顺序，然后复现。声音能越墙，说明规则并不是世界的全部。</p></div></div>
+          <div class="sound-board"><button data-note="0">宫</button><button data-note="1">商</button><button data-note="2">角</button><button data-note="3">羽</button></div><button class="sound-start" type="button">听一遍</button>
+          <p class="stage-feedback" aria-live="polite">准备好以后，先听，不要猜。</p><button class="stage-next" type="button" hidden>继续：打开废井 →</button>
+        </article>
+
+        <article class="puzzle-card" data-stage="3">
+          <div class="stage-heading"><span>04</span><div><h3>把被抹去的句子放回井口</h3><p>按因果顺序选择三块残句。井没有制造悲剧，它保存了宅院要求所有人忘记的结果。</p></div></div>
+          <div class="word-path"><button data-order="2">井负责遗忘</button><button data-order="0">门把人分开</button><button data-order="1">窗让人监视</button></div><div class="word-line" aria-label="已经重组的句子"></div>
+          <div class="well-reveal" hidden>门把人分开，窗让人监视，井负责遗忘。<br><strong>真正困住她们的不是院墙，而是只有通过另一个女人的失势才能获得安全的分配方式。</strong><span class="puzzle-complete-badge">宅院回路已破解</span></div>
+          <p class="stage-feedback" aria-live="polite">先找空间如何分隔人，再找分隔之后发生了什么。</p>
+        </article>
+      </div>
+    </section>
+
     <section class="puzzle section">
       <div class="puzzle-copy"><p class="eyebrow pale">AFTER THE PUZZLE</p><h2>当井盖打开，<br>答案不是一个名字。</h2><p>四件物品会组成一句话。它不解释某一次悲剧，而是指向悲剧能够反复发生的结构。</p></div>
       <div class="sentence"><span>门</span><i>把人分开</i><span>窗</span><i>让人监视</i><span>井</span><i>负责遗忘</i></div>
@@ -95,5 +132,6 @@
   <footer><a class="brand" href="index.html"><span>她</span><b>她的房间<small>HER ROOMS</small></b></a><p>进入她们的房间，阅读那些没有被直接说出的部分。</p><a href="#top">返回顶部 ↑</a></footer>
   <div class="toast" role="status" aria-live="polite"></div>
   <script src="wife-app.js"></script>
+  <script src="puzzle-lab.js"></script>
 </body>
 </html>
