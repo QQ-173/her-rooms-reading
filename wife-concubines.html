@@ -10,7 +10,8 @@
   <link rel="stylesheet" href="puzzle-lab.css">
   <link rel="stylesheet" href="sound-design.css">
   <link rel="stylesheet" href="reading-journey.css?v=3">
-  <link rel="stylesheet" href="experience-redesign.css?v=2">
+  <link rel="stylesheet" href="experience-redesign.css?v=3">
+  <link rel="stylesheet" href="story-primer.css?v=1">
 </head>
 <body class="wife-page">
   <a class="skip" href="#main">跳到主要内容</a>
@@ -32,7 +33,28 @@
       <h1 id="experience-title">先选择你的进入方式。</h1>
       <p class="guide-lead">没读过原著时，网站只解释宅院的基本规则，不要求记住四个人的命运。读过之后，才打开关于责任、伤害和制度的深度谜题。</p>
       <div class="reader-choice"><a data-reader-link="unread" href="wife-concubines.html?reader=unread#experience-start">我还没读过 · 无剧透</a><a data-reader-link="finished" href="wife-concubines.html?reader=finished#experience-start">我已经读过 · 深度模式</a></div>
-      <nav class="guide-path" aria-label="体验顺序"><a href="#book"><b>STEP 01 · 2分钟</b><strong>认识宅院规则</strong><small>只提供理解空间所需的信息</small></a><a href="#courtyard"><b>STEP 02 · 5分钟</b><strong>进入陈府后院</strong><small>观察门、窗、回廊与物件</small></a><a href="#reading-journey"><b>STEP 03 · 3分钟</b><strong>完成一次分配</strong><small>带着被排除的人进入阅读</small></a></nav>
+      <nav class="guide-path" aria-label="体验顺序"><a href="#primer"><b>STEP 01 · 3分钟</b><strong>玩一段无剧透序章</strong><small>用选择和物件理解宅院规则</small></a><a href="#courtyard"><b>STEP 02 · 5分钟</b><strong>进入陈府后院</strong><small>只追踪门、窗与井的关系</small></a><a href="#reading-journey"><b>STEP 03 · 3分钟</b><strong>完成一次分配</strong><small>带着被排除的人进入阅读</small></a></nav>
+    </section>
+    <section class="story-primer courtyard-primer" id="primer" data-primer="courtyard" aria-labelledby="primer-title">
+      <header class="primer-top"><div><p class="eyeline">3 MIN STORY PRIMER · 无剧透序章</p><h2 id="primer-title">先理解规则，不必先记住四个人</h2></div><nav class="primer-progress" aria-label="序章进度"><button class="active" data-primer-dot type="button">01</button><button data-primer-dot type="button">02</button><button data-primer-dot type="button">03</button><button data-primer-dot type="button">04</button></nav></header>
+      <div class="primer-shell">
+        <article class="primer-panel active" data-primer-panel>
+          <div class="primer-copy"><span class="step">01 · 一个新进入者</span><h3>她受过新式教育，<br>却走进一套旧式婚姻。</h3><p>家庭变故后，年轻的颂莲进入陈府，成为第四位妻妾。她很快发现：在这里，被看见、安全和体面都必须通过同一套规则获得。</p><div class="primer-actions"><button class="primer-next" data-primer-next type="button">下一步：做一次直觉选择 →</button></div></div>
+          <div class="duo-cards"><div class="person-card"><span class="person-mark">颂</span><b>颂莲</b><small>新进入者 · 受过教育</small><p>她一开始能够观察规则，后来却发现，仅仅看懂规则并不足以保护自己。</p></div><div class="person-card"><span class="person-mark">院</span><b>陈府</b><small>房间 · 流言 · 资源分配</small><p>它不只是背景。门窗和回廊把每个人的生活变成他人可以监视、解释和利用的消息。</p></div></div>
+        </article>
+        <article class="primer-panel" data-primer-panel hidden>
+          <div class="primer-copy"><span class="step">02 · 你的直觉</span><h3>如果安全必须来自同一个人的偏爱，你会先做什么？</h3><p>选择一种本能反应。小说的尖锐之处，在于每种反应都可能保护自己，也可能伤害别人。</p><div class="primer-actions"><button class="primer-back" data-primer-back type="button">← 返回</button><button class="primer-next" data-primer-next type="button">继续看宅院线索 →</button></div></div>
+          <div class="choice-grid"><button class="primer-choice" data-response="结盟能暂时抵挡危险，但当资源仍然不足，联盟也会被规则反复拆散。" type="button">尽快寻找盟友</button><button class="primer-choice" data-response="退让看似远离竞争，却无法让一个人真正退出由他人分配安全的结构。" type="button">尽量不参与竞争</button><button class="primer-choice" data-response="掌握消息能够带来主动，但当所有人都被监视，信息本身也会变成伤害工具。" type="button">先掌握所有消息</button><button class="primer-choice" data-response="争取被看见可能换来短暂安全，同时也会让另一个人失去同样稀缺的关注。" type="button">努力让自己被看见</button><p class="choice-response" aria-live="polite">选择一种做法，看看宅院如何改变它的意义。</p></div>
+        </article>
+        <article class="primer-panel" data-primer-panel hidden>
+          <div class="primer-copy"><span class="step">03 · 触碰规则</span><h3>四个空间物件，就是宅院的语言。</h3><p>点击查看一句背景。它们会在3D空间里成为方向，不会提前讲出人物结局。</p><div class="primer-actions"><button class="primer-back" data-primer-back type="button">← 返回</button><button class="primer-next" data-primer-next type="button">领取宅院任务 →</button></div></div>
+          <div class="clue-board"><button class="primer-clue" data-title="门" data-detail="房间意味着身份，也意味着分隔。谁能进入、谁被拒绝，本身就是权力。" type="button"><i>▥</i><b>门</b><small>分配空间</small></button><button class="primer-clue" data-title="窗" data-detail="窗让人看见院子，也让生活暴露在他人的视线、流言和判断里。" type="button"><i>▦</i><b>窗</b><small>互相监视</small></button><button class="primer-clue" data-title="箫" data-detail="箫声来自院墙之外的可能。声音能够越墙，人却未必能够离开。" type="button"><i>♪</i><b>箫</b><small>墙外的声音</small></button><button class="primer-clue" data-title="废井" data-detail="宅院不仅制造当下的秩序，也需要一个地方隐藏无法被秩序解释的人和记忆。" type="button"><i>◉</i><b>井</b><small>被迫遗忘</small></button><div class="clue-readout" aria-live="polite">任选一个物件。接下来你只需观察它如何连接空间与规则。</div><div class="clue-count">已触碰 0 / 4 条背景线索 · 不必全部打开也可以继续</div></div>
+        </article>
+        <article class="primer-panel" data-primer-panel hidden>
+          <div class="primer-copy"><span class="step">04 · 进入任务</span><h3>进入后院，<br>只追踪三种关系。</h3><p>不需要辨认所有人物。观察空间如何让人彼此分开、彼此看见，又让某些声音和记忆消失。</p><div class="primer-actions"><button class="primer-back" data-primer-back type="button">← 返回</button><button class="archive-toggle" type="button">想了解更多？展开书籍档案</button></div></div>
+          <div class="mission-card"><span>YOUR COURTYARD MISSION</span><h4>三种关系 · 一个问题</h4><div class="mission-list"><div class="mission-item"><b>01</b><span>门——谁能进入，谁被留在外面？</span></div><div class="mission-item"><b>02</b><span>窗——谁在观看，又是谁被观看？</span></div><div class="mission-item"><b>03</b><span>井——宅院需要遗忘什么？</span></div></div><div class="mission-cta"><small>预计探索 5 分钟</small><a href="#courtyard">带着任务进入宅院 →</a></div></div>
+        </article>
+      </div>
     </section>
     <section class="hero" id="top">
       <div class="wash wash-one"></div><div class="wash wash-two"></div>
@@ -174,6 +196,7 @@
   <script src="puzzle-lab.js"></script>
   <script src="sound-design.js"></script>
   <script src="reading-journey.js?v=3"></script>
-  <script src="experience-redesign.js?v=2"></script>
+  <script src="experience-redesign.js?v=3"></script>
+  <script src="story-primer.js?v=1"></script>
 </body>
 </html>

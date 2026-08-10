@@ -36,6 +36,7 @@
   if (nav) {
     const roomId = isWifePage ? 'courtyard' : 'room';
     const archiveId = isWifePage ? 'archive' : 'reading';
-    nav.innerHTML = `<a href="#book">01 故事背景</a><a href="#${roomId}">02 探索空间</a><a href="#reading-journey">03 带着问题阅读</a><a href="#${archiveId}">延伸内容</a>`;
+    const startId = reader === 'unread' ? 'primer' : 'book';
+    nav.innerHTML = `<a href="#${startId}">01 ${reader === 'unread' ? '互动序章' : '故事背景'}</a><a href="#${roomId}">02 探索空间</a><a href="#reading-journey">03 带着问题阅读</a><a href="#${archiveId}">延伸内容</a>`;
   }
 })();

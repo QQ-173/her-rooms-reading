@@ -10,7 +10,8 @@
   <link rel="stylesheet" href="puzzle-lab.css">
   <link rel="stylesheet" href="sound-design.css">
   <link rel="stylesheet" href="reading-journey.css?v=3">
-  <link rel="stylesheet" href="experience-redesign.css?v=2">
+  <link rel="stylesheet" href="experience-redesign.css?v=3">
+  <link rel="stylesheet" href="story-primer.css?v=1">
 </head>
 <body>
   <a class="skip-link" href="#main">跳到主要内容</a>
@@ -77,7 +78,28 @@
       <h1 id="experience-title">先告诉我们：<br>你读过这本书吗？</h1>
       <p class="guide-lead">没有读过也完全可以开始。新读者模式只提供理解体验所需的背景；深度谜题和剧情讨论会留到读后。</p>
       <div class="reader-choice"><a data-reader-link="unread" href="index.html?book=genius&reader=unread#experience-start">我还没读过 · 无剧透</a><a data-reader-link="finished" href="index.html?book=genius&reader=finished#experience-start">我已经读过 · 深度模式</a></div>
-      <nav class="guide-path" aria-label="体验顺序"><a href="#book"><b>STEP 01 · 2分钟</b><strong>认识故事处境</strong><small>只看理解房间所需的信息</small></a><a href="#room"><b>STEP 02 · 5分钟</b><strong>探索鞋匠铺</strong><small>触碰物件，不需要猜原著情节</small></a><a href="#reading-journey"><b>STEP 03 · 3分钟</b><strong>带走一个问题</strong><small>决定是否进入原著继续寻找</small></a></nav>
+      <nav class="guide-path" aria-label="体验顺序"><a href="#primer"><b>STEP 01 · 3分钟</b><strong>玩一段无剧透序章</strong><small>用选择和物件认识人物处境</small></a><a href="#room"><b>STEP 02 · 5分钟</b><strong>探索鞋匠铺</strong><small>只寻找序章交给你的三件东西</small></a><a href="#reading-journey"><b>STEP 03 · 3分钟</b><strong>带走一个问题</strong><small>决定是否进入原著继续寻找</small></a></nav>
+    </section>
+    <section class="story-primer genius-primer" id="primer" data-primer="genius" aria-labelledby="primer-title">
+      <header class="primer-top"><div><p class="eyeline">3 MIN STORY PRIMER · 无剧透序章</p><h2 id="primer-title">先认识她们，不必先认识原著</h2></div><nav class="primer-progress" aria-label="序章进度"><button class="active" data-primer-dot type="button">01</button><button data-primer-dot type="button">02</button><button data-primer-dot type="button">03</button><button data-primer-dot type="button">04</button></nav></header>
+      <div class="primer-shell">
+        <article class="primer-panel active" data-primer-panel>
+          <div class="primer-copy"><span class="step">01 · 两个女孩</span><h3>同样聪明，<br>却不拥有同样的出口。</h3><p>她们是朋友，也是彼此判断自己能走多远的尺度。故事的张力，不来自“谁更优秀”，而来自机会开始把她们分开。</p><div class="primer-actions"><button class="primer-next" data-primer-next type="button">下一步：凭直觉选择 →</button></div></div>
+          <div class="duo-cards"><div class="person-card"><span class="person-mark">莉</span><b>莉拉</b><small>敏锐 · 反抗 · 没能继续读书</small><p>她总能比规则更早看见规则，却很少拥有安全地离开规则的条件。</p></div><div class="person-card"><span class="person-mark">莱</span><b>莱农</b><small>观察 · 追赶 · 得以继续读书</small><p>她通过教育离开街区，也不断借由书写回望那个没有一起离开的朋友。</p></div></div>
+        </article>
+        <article class="primer-panel" data-primer-panel hidden>
+          <div class="primer-copy"><span class="step">02 · 你的直觉</span><h3>如果最好的朋友和你一样优秀，你更害怕什么？</h3><p>没有正确答案。你的选择，会成为进入这段友谊的第一个角度。</p><div class="primer-actions"><button class="primer-back" data-primer-back type="button">← 返回</button><button class="primer-next" data-primer-next type="button">继续看背景线索 →</button></div></div>
+          <div class="choice-grid"><button class="primer-choice" data-response="竞争并不是友谊的反面。在她们之间，害怕落后也会迫使彼此看见更远的可能。" type="button">她超过我</button><button class="primer-choice" data-response="这正是莱农最深的焦虑之一：她离开了，而莉拉的天赋似乎仍被困在原地。" type="button">她放弃自己的天赋</button><button class="primer-choice" data-response="她们不断靠近又推开彼此。被需要既是一种亲密，也可能成为一种权力。" type="button">她不再需要我</button><button class="primer-choice" data-response="离开街区并不只意味着获得自由，也意味着必须重新回答：我还是原来的我吗？" type="button">我离开后变成另一个人</button><p class="choice-response" aria-live="polite">选择一种担心，看看它如何存在于莉拉和莱农之间。</p></div>
+        </article>
+        <article class="primer-panel" data-primer-panel hidden>
+          <div class="primer-copy"><span class="step">03 · 触碰背景</span><h3>四条线索，足够看懂房间。</h3><p>点击物件获得一句必要背景。不必记忆人名，也不用全部打开。</p><div class="primer-actions"><button class="primer-back" data-primer-back type="button">← 返回</button><button class="primer-next" data-primer-next type="button">领取房间任务 →</button></div></div>
+          <div class="clue-board"><button class="primer-clue" data-title="街区" data-detail="20世纪50年代的那不勒斯贫困街区。家庭、暴力和经济条件共同决定一个女孩能走多远。" type="button"><i>▦</i><b>街区</b><small>她们共同的边界</small></button><button class="primer-clue" data-title="学校" data-detail="继续读书不是默认道路，而是需要家庭支持、成绩和运气共同允许的稀缺机会。" type="button"><i>✎</i><b>学校</b><small>第一次分岔</small></button><button class="primer-clue" data-title="《小妇人》" data-detail="两个女孩曾共同相信，写一本书也许能让她们赚钱，并改变家庭的生活。" type="button"><i>▤</i><b>一本书</b><small>共同想象未来</small></button><button class="primer-clue" data-title="男式旅行鞋" data-detail="莉拉设计、家人制作的一双鞋。它既是创造力的证明，也会进入男性掌握的交易关系。" type="button"><i>◇</i><b>一双鞋</b><small>创造进入交易</small></button><div class="clue-readout" aria-live="polite">任选一个物件。房间会把这条背景变成可以靠近的空间线索。</div><div class="clue-count">已触碰 0 / 4 条背景线索 · 不必全部打开也可以继续</div></div>
+        </article>
+        <article class="primer-panel" data-primer-panel hidden>
+          <div class="primer-copy"><span class="step">04 · 进入任务</span><h3>进入鞋匠铺，<br>只寻找三样东西。</h3><p>不需要破解剧情。靠近、观察、点击，然后问自己：这些东西曾经属于谁，后来又由谁决定它们的命运？</p><div class="primer-actions"><button class="primer-back" data-primer-back type="button">← 返回</button><button class="archive-toggle" type="button">想了解更多？展开书籍档案</button></div></div>
+          <div class="mission-card"><span>YOUR ROOM MISSION</span><h4>三件物品 · 三个问题</h4><div class="mission-list"><div class="mission-item"><b>01</b><span>玩偶——谁先越过成人划定的边界？</span></div><div class="mission-item"><b>02</b><span>书——她们曾共同想象怎样的未来？</span></div><div class="mission-item"><b>03</b><span>鞋——创造离开设计者后属于谁？</span></div></div><div class="mission-cta"><small>预计探索 5 分钟</small><a href="#room">带着任务进入房间 →</a></div></div>
+        </article>
+      </div>
     </section>
     <aside class="book-switcher" aria-label="书目切换">
       <span>正在阅读</span>
@@ -348,6 +370,7 @@
   <script src="puzzle-lab.js"></script>
   <script src="sound-design.js"></script>
   <script src="reading-journey.js?v=3"></script>
-  <script src="experience-redesign.js?v=2"></script>
+  <script src="experience-redesign.js?v=3"></script>
+  <script src="story-primer.js?v=1"></script>
 </body>
 </html>
