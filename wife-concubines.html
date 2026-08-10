@@ -8,6 +8,7 @@
   <title>妻妾成群｜她的房间</title>
   <link rel="stylesheet" href="wife-style.css">
   <link rel="stylesheet" href="puzzle-lab.css">
+  <link rel="stylesheet" href="sound-design.css">
 </head>
 <body>
   <a class="skip" href="#main">跳到主要内容</a>
@@ -112,6 +113,25 @@
       </div>
     </section>
 
+    <section class="reading-instrument courtyard-instrument" data-sound-world="courtyard" aria-labelledby="courtyard-sound-title">
+      <div class="instrument-head">
+        <div><p class="instrument-kicker">COURTYARD LISTENING · 002</p><h2 id="courtyard-sound-title">听见四间房，而不是一种结论</h2></div>
+        <p>分别开启四个人物的抽象声部。越多声音同时存在，声场越拥挤；这让“互相遮蔽”成为可以直接听见的空间关系。</p>
+      </div>
+      <div class="instrument-grid">
+        <article class="voice-mixer">
+          <h3>宅院声场</h3><p>点击房间加入或移除声部。声音不会替人物说话，只呈现她们在同一结构中的距离。</p>
+          <div class="voice-nodes"><button class="voice-node" data-voice="yuru" data-frequency="196" type="button"><b>毓如</b><small>低沉 · 稳定</small></button><button class="voice-node" data-voice="zhuoyun" data-frequency="220" type="button"><b>卓云</b><small>靠近 · 试探</small></button><button class="voice-node" data-voice="meishan" data-frequency="293.66" type="button"><b>梅珊</b><small>明亮 · 越界</small></button><button class="voice-node" data-voice="songlian" data-frequency="246.94" type="button"><b>颂莲</b><small>游移 · 断裂</small></button></div>
+          <div class="relation-control"><label><span>被看见</span><span>被监听</span></label><input class="relation-slider" type="range" min="0" max="100" value="35" aria-label="调整宅院凝视强度"><p class="relation-reading">门窗仍像生活空间，但每一次开合都可能把日常变成证据。</p></div>
+        </article>
+        <article class="memory-console">
+          <h3>院墙之外与之内</h3><p>打开声音碎片，比较哪些能够越墙，哪些只能在院内循环。</p>
+          <div class="memory-fragments"><button class="memory-fragment" data-fragment="wind" type="button"><i>01</i><b>回廊的风</b><span></span></button><button class="memory-fragment" data-fragment="flute" type="button"><i>02</i><b>越墙的箫声</b><span></span></button><button class="memory-fragment" data-fragment="well" type="button"><i>03</i><b>井口的空响</b><span></span></button></div>
+          <div class="memory-reveal" aria-live="polite">选择一段声场。风、箫声与井口分别对应流动、出口和被迫遗忘。</div><p class="instrument-status">已打开 0 / 3 段声场</p>
+        </article>
+      </div>
+    </section>
+
     <section class="puzzle section">
       <div class="puzzle-copy"><p class="eyebrow pale">AFTER THE PUZZLE</p><h2>当井盖打开，<br>答案不是一个名字。</h2><p>四件物品会组成一句话。它不解释某一次悲剧，而是指向悲剧能够反复发生的结构。</p></div>
       <div class="sentence"><span>门</span><i>把人分开</i><span>窗</span><i>让人监视</i><span>井</span><i>负责遗忘</i></div>
@@ -133,5 +153,6 @@
   <div class="toast" role="status" aria-live="polite"></div>
   <script src="wife-app.js"></script>
   <script src="puzzle-lab.js"></script>
+  <script src="sound-design.js"></script>
 </body>
 </html>

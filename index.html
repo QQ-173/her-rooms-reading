@@ -8,6 +8,7 @@
   <title>她的房间｜女性文学互动社区</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="puzzle-lab.css">
+  <link rel="stylesheet" href="sound-design.css">
 </head>
 <body>
   <a class="skip-link" href="#main">跳到主要内容</a>
@@ -162,6 +163,25 @@
       </div>
     </section>
 
+    <section class="reading-instrument genius-instrument" data-sound-world="genius" aria-labelledby="genius-sound-title">
+      <div class="instrument-head">
+        <div><p class="instrument-kicker">RELATIONSHIP INSTRUMENT · 001</p><h2 id="genius-sound-title">把友谊调到你听见的位置</h2></div>
+        <p>点击人物声部，再移动关系滑杆。你听到的不是人物配音，而是三种关系力量的抽象音色：追赶、反射与共同想象。</p>
+      </div>
+      <div class="instrument-grid">
+        <article class="voice-mixer">
+          <h3>双声阅读器</h3><p>声部可以单独播放，也可以叠加。第三个声部只有在两个人都被听见时才完整。</p>
+          <div class="voice-nodes"><button class="voice-node" data-voice="lila" data-frequency="329.63" type="button"><b>莉拉</b><small>锋利 · 跳跃</small></button><button class="voice-node" data-voice="lenu" data-frequency="261.63" type="button"><b>莱农</b><small>持续 · 追随</small></button><button class="voice-node" data-voice="between" data-frequency="392" type="button"><b>她们之间</b><small>模仿 · 共振</small></button></div>
+          <div class="relation-control"><label><span>竞争</span><span>共同创造</span></label><input class="relation-slider" type="range" min="0" max="100" value="50" aria-label="调整友谊关系"><p class="relation-reading">她们把彼此当作尺度：既害怕落后，也因此看见更远的可能。</p></div>
+        </article>
+        <article class="memory-console">
+          <h3>可触摸的记忆</h3><p>每一段声音对应一种不写在对白里的关系。点击碎片，打开它的阅读层。</p>
+          <div class="memory-fragments"><button class="memory-fragment" data-fragment="dolls" type="button"><i>01</i><b>地下室的回声</b><span></span></button><button class="memory-fragment" data-fragment="pages" type="button"><i>02</i><b>翻页与铅笔</b><span></span></button><button class="memory-fragment" data-fragment="shoe" type="button"><i>03</i><b>鞋楦上的敲击</b><span></span></button></div>
+          <div class="memory-reveal" aria-live="polite">选择一段记忆。开启声音后，每段会拥有不同的触觉音色。</div><p class="instrument-status">已打开 0 / 3 段记忆</p>
+        </article>
+      </div>
+    </section>
+
     <section class="reading-section section-shell" id="reading" aria-labelledby="reading-title">
       <div class="section-heading compact">
         <div><p class="eyebrow">READING ARCHIVE</p><h2 id="reading-title">阅读档案</h2></div>
@@ -273,5 +293,6 @@
   <div class="toast" role="status" aria-live="polite"></div>
   <script src="app.js"></script>
   <script src="puzzle-lab.js"></script>
+  <script src="sound-design.js"></script>
 </body>
 </html>
