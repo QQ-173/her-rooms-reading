@@ -1231,6 +1231,8 @@ html&gt;body{padding:0}&lt;/style&gt;
         } else if(name===&#x27;shoe&#x27;){
           detailTitle.textContent=&#x27;莉拉设计的男式旅行鞋 · 推测复原&#x27;; detailText.textContent=&#x27;深栗色植鞣皮、略收长的圆头、四孔开放式德比系带、手缝沿条与叠层皮跟；装饰克制，强调轻便与合脚。原著没有技术图纸，这是依据年代与情节所做的复原。&#x27;;
         }
+        const taskId=(name===&#x27;doll-tina&#x27;||name===&#x27;doll-nu&#x27;)?&#x27;dolls&#x27;:(name===&#x27;little-women&#x27;?&#x27;book&#x27;:(name===&#x27;shoe&#x27;?&#x27;shoe&#x27;:null));
+        if(taskId){const taskLabel={dolls:&#x27;玩偶&#x27;,book:&#x27;《小妇人》&#x27;,shoe:&#x27;男式旅行鞋&#x27;}[taskId];try{parent.postMessage({type:&#x27;genius-room-clue&#x27;,id:taskId,label:taskLabel},&#x27;*&#x27;)}catch{}}
       }
       function cast(e,doInspect=false){
         const rect=renderer.domElement.getBoundingClientRect(); pointer.x=((e.clientX-rect.left)/rect.width)*2-1; pointer.y=-((e.clientY-rect.top)/rect.height)*2+1;

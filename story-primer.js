@@ -14,6 +14,7 @@
         dot.classList.toggle('active', i === current);
         dot.setAttribute('aria-current', i === current ? 'step' : 'false');
       });
+      if (current === panels.length - 1) window.dispatchEvent(new CustomEvent('herrooms:primer-complete'));
       if (shouldScroll) primer.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
