@@ -56,10 +56,13 @@
     state.room.push(id); save(); update();
   }
   window.addEventListener('herrooms:primer-complete', () => { state.primer = true; save(); update(); });
+  window.addEventListener('herrooms:game-clue-complete', event => markRoom(event.detail?.id));
+  window.addEventListener('herrooms:game-question', event => { if (event.detail?.question) setQuestion(event.detail.question); });
   window.addEventListener('message', event => {
     if (event.data?.type === `${book === 'genius' ? 'genius' : 'wife'}-room-clue`) markRoom(event.data.id);
   });
   document.querySelectorAll(wife ? '.object-index button' : '.clue-strip button').forEach(button => button.addEventListener('click', () => {
+    if (!wife && document.querySelector('.literary-game-shell')) return;
     const id = wife ? button.dataset.object : ({ dolls:'dolls', book:'book', shoe:'shoe' }[button.dataset.clue]);
     markRoom(id);
   }));
