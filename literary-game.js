@@ -17,9 +17,9 @@
       <div class="game-intro"><p class="game-kicker">A PLAYABLE LITERARY ROOM · 1950s NAPLES</p><h3>两个女孩从同一条街出发。<br>房间会记住她们如何分开。</h3><p>这不是原著测试。你不需要知道答案，只需要走近三件物品，观察谁有权学习、创造与离开。</p><button class="game-start" type="button">戴上耳机 · 进入鞋匠铺</button></div>
     </div>
     <div class="perspective-panel"><h3>你想从哪里看这段友谊？</h3><p>视角不会改变事实，但会改变房间首先让你看见什么。</p><div class="perspective-grid">
-      <button class="perspective-card" data-perspective="lila"><b>跟随莉拉</b><span>从被迫留下的人出发，看天赋如何进入劳动与交易。</span></button>
-      <button class="perspective-card" data-perspective="lenu"><b>跟随莱农</b><span>从得以离开的人出发，看教育如何带来出口与亏欠。</span></button>
-      <button class="perspective-card" data-perspective="between"><b>站在她们之间</b><span>把两个人都当作尺度，观察机会怎样制造距离。</span></button>
+      <button class="perspective-card role-card" data-perspective="lila"><i class="role-silhouette wave"></i><span class="role-copy"><em class="role-tag">莉拉 · 被迫留下</em><b>跟随莉拉</b><span>敏锐、反抗，没有继续读书。她的天赋不断进入劳动与交易。</span></span></button>
+      <button class="perspective-card role-card" data-perspective="lenu"><i class="role-silhouette"></i><span class="role-copy"><em class="role-tag">莱农 · 得以离开</em><b>跟随莱农</b><span>通过教育离开街区，也不断借由书写回望留下的朋友。</span></span></button>
+      <button class="perspective-card role-card" data-perspective="between"><i class="role-silhouette short"></i><span class="role-copy"><em class="role-tag">旁观者 · 两人的尺度</em><b>站在她们之间</b><span>不判断谁更天才，观察机会如何在同一条街制造距离。</span></span></button>
     </div></div>
     <div class="game-hud"><div class="game-hud-panel"><div><small>CURRENT VIEW</small><b class="hud-view">等待选择</b></div><div class="game-task-dots"><i></i><i></i><i></i></div></div><div class="game-hud-panel game-hud-hint">靠近并点击：玩偶、《小妇人》、男式旅行鞋</div></div>
     <div class="game-object-modal" role="dialog" aria-modal="true"><article class="game-object-card"><div class="game-card-top"><div><span class="game-object-no"></span><h3 class="game-object-title"></h3><p class="game-object-copy"></p></div><button class="game-close" aria-label="关闭" type="button">×</button></div><div class="game-workspace"></div><p class="game-feedback" aria-live="polite"></p></article></div>

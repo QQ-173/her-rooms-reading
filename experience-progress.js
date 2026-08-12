@@ -12,7 +12,7 @@
     tasks: { dolls: '玩偶', book: '《小妇人》', shoe: '男式旅行鞋' },
     buy: 'https://e.dangdang.com/products/1900653911.html'
   };
-  const key = `her-rooms-flow-${book}-v1`;
+  const key = `her-rooms-flow-${book}-v2`;
   const load = () => { try { return JSON.parse(localStorage.getItem(key)) || {}; } catch { return {}; } };
   const state = Object.assign({ primer: false, room: [], question: '', card: false }, load());
   const save = () => { try { localStorage.setItem(key, JSON.stringify(state)); } catch {} };
@@ -59,10 +59,11 @@
   window.addEventListener('herrooms:game-clue-complete', event => markRoom(event.detail?.id));
   window.addEventListener('herrooms:game-question', event => { if (event.detail?.question) setQuestion(event.detail.question); });
   window.addEventListener('message', event => {
+    if (document.querySelector('.literary-game-shell')) return;
     if (event.data?.type === `${book === 'genius' ? 'genius' : 'wife'}-room-clue`) markRoom(event.data.id);
   });
   document.querySelectorAll(wife ? '.object-index button' : '.clue-strip button').forEach(button => button.addEventListener('click', () => {
-    if (!wife && document.querySelector('.literary-game-shell')) return;
+    if (document.querySelector('.literary-game-shell')) return;
     const id = wife ? button.dataset.object : ({ dolls:'dolls', book:'book', shoe:'shoe' }[button.dataset.clue]);
     markRoom(id);
   }));
